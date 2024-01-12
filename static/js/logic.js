@@ -59,18 +59,21 @@ d3.json(link).then(function(data){
     }).addTo(map)
 })
 
-//create legend
-//var legend = L.control ({position: 'bottomright'});
-//legend.onAdd = function (map) {
-//    var div = L.DomUtil.create('div', 'info legend'),
-//    grades = [-10, 10, 30, 50, 70, 90],
-//    colors = ['#FFFFCC', '#FFE5B4', '#FFCBA4', '#FF7F50', '#C62828', '#800000'];
-//
-//    for (var i=0; i < grades.length; i++) {
-//        div.innerHTML +=
-//       '<i style="background: ' + colors[i] +'"></i> ' +
-//        grades[i] + (grades[i+1] + '<br> ' : '+');
-//    }
-//    return div;
-//}
-//legend.addTo(map);
+// Create legend
+var legend = L.control({ position: 'bottomright' });
+
+legend.onAdd = function(map) {
+  var div = L.DomUtil.create('div', 'info legend'),
+      grades = [-10, 10, 30, 50, 70, 90],
+      colors = ['#FFFFCC', '#FFE5B4', '#FFCBA4', '#FF7F50', '#C62828', '#800000'];
+
+    for (var i = 0; i < grades.length; i++) {
+    div.innerHTML +=
+      '<span style="display: inline-block; width: 15px; height: 15px; margin-right: 5px; background-color:' + colors[i] + '"></span>' +
+      grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
+  }
+
+  return div;
+};
+
+legend.addTo(map);

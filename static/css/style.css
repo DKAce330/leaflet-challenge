@@ -3,6 +3,12 @@ body {
   margin: 0;
 }
 
+.info.legend {
+  background-color: #F5F5F5; /* adjust to your preference */
+  padding: 10px;
+  border: 1px solid #CCC;
+}
+
 #map,
 body,
 html {
